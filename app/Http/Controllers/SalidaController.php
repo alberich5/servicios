@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Response;
 use App\Entrada;
 use App\Salida;
+use App\Cliente;
 
 class SalidaController extends Controller
 {
@@ -17,7 +18,11 @@ class SalidaController extends Controller
 
   public function guardar(Request $request)
   {
-
+    $dia=date('d');
+    $mes=date('m');
+    $ano=date('y');
+    //$fecha=$ano.'-'.$mes.'-'.$dia;
+    $fecha="2018-02-21"
     $tamano = count($request->variable);
     for($i=0; $i<$tamano; $i++){
 
@@ -26,7 +31,7 @@ class SalidaController extends Controller
       $salida->id_cliente=$request->variable[$i]['cliente'];
       $salida->id_usuario=$request->variable[$i]['id_usuario'];
       $salida->cantidad=$request->variable[$i]['otro'];
-      $salida->fecha_salida="2018-02-20";
+      $salida->fecha_salida=$fecha;
       $salida->save();
 
       $unidad = Entrada::select('id','cantidad')
@@ -59,25 +64,37 @@ class SalidaController extends Controller
 
     }
 
-    public function crearWord(){
-$phpWord = new \PhpOffice\PhpWord\PhpWord();
-$section = $phpWord->addSection();
+    public function crearWord(Request $request){
+
+      $client = Cliente::select('id','nombre')
+      ->where('id','=', $request->get('cliente'))
+      ->get();
+      $var="";
+      foreach ($client as $cli) {
+          $var = $cli->nombre;
+      }
+
+      $phpWord = new \PhpOffice\PhpWord\PhpWord();
+      $section = $phpWord->addSection();
+
+      $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantilla/formato1.docx');
+      $dia=date('d');
+      $mes=date('m');
+      $ano=date('y');
 
 
-$templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1.docx');
+      $templateWord->setValue('dia',$dia);
+      $templateWord->setValue('mes',$mes);
+      $templateWord->setValue('ano',$ano);
 
-$dia=date('d');
-$mes=date('m');
-$ano=date('y');
-
-
-$templateWord->setValue('dia',$dia);
-$templateWord->setValue('mes',$mes);
-$templateWord->setValue('ano',$ano);
-$templateWord->saveAs('salida.docx');
-//$this->historial('Descarga de oficio de alta del elemento '.$id);
-$nombreDocumento=str_replace("  "," ","omar");
-return Response::download('salida.docx',$nombreDocumento.'.docx');
+      $templateWord->setValue('area',$var);
+      $templateWord->setValue('articulo0',$request->get('articulo'));
+      $templateWord->setValue('unidad0','pieza');
+      $templateWord->setValue('cant0',$request->get('cantidad'));
+      $templateWord->saveAs('salida.docx');
+      //$this->historial('Descarga de oficio de alta del elemento '.$id);
+      $nombreDocumento=str_replace("  "," ","omar");
+      return Response::download('salida.docx',$nombreDocumento.'.docx');
     }
 
 }
