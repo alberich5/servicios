@@ -214,11 +214,13 @@
                       "otro": this.cantidad,
                       "cliente": this.clienteSelecionado
                     });
+                    
                     //this.totalCargado[index].otro=this.cantidad;
                     swal("Agregado Correctamente", "Se agrego bien", "success");
                     this.cantidad2=this.cantidad;
                     this.cantidad="0";
                     this.articulos=[];
+
                   }else{
                     swal('Agrega cantidad','Agrega cantidad mayor a 0','info');
                   }
