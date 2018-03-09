@@ -201,25 +201,31 @@
                 },
                 agregar:function(art, index){
                   if(this.cantidad > 0){
-                    this.totalCargado.push({
-                      "id": art.id,
-                      "id_usuario": art.id_usuario,
-                      "id_unidad": art.id_unidad,
-                      "fecha_ingreso": art.fecha_ingreso,
-                      "descripcion": art.descripcion,
-                      "marca": art.marca,
-                      "precio": art.precio,
-                      "precio_iva": art.precio_iva,
-                      "cantidad": art.cantidad,
-                      "otro": this.cantidad,
-                      "cliente": this.clienteSelecionado
-                    });
-                    
-                    //this.totalCargado[index].otro=this.cantidad;
-                    swal("Agregado Correctamente", "Se agrego bien", "success");
-                    this.cantidad2=this.cantidad;
-                    this.cantidad="0";
-                    this.articulos=[];
+                      if(this.cantidad <= art.cantidad){
+                        this.totalCargado.push({
+                          "id": art.id,
+                          "id_usuario": art.id_usuario,
+                          "id_unidad": art.id_unidad,
+                          "fecha_ingreso": art.fecha_ingreso,
+                          "descripcion": art.descripcion,
+                          "marca": art.marca,
+                          "precio": art.precio,
+                          "precio_iva": art.precio_iva,
+                          "cantidad": art.cantidad,
+                          "otro": this.cantidad,
+                          "cliente": this.clienteSelecionado
+                        });
+
+                        //this.totalCargado[index].otro=this.cantidad;
+                        swal("Agregado Correctamente", "Se agrego bien", "success");
+                        this.cantidad2=this.cantidad;
+                        this.cantidad="0";
+                        this.articulos=[];
+                      }else{
+                        swal('nNO','Agrega cantidad mayor a 0','error');
+                      }
+
+
 
                   }else{
                     swal('Agrega cantidad','Agrega cantidad mayor a 0','info');
