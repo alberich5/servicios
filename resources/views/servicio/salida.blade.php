@@ -147,12 +147,12 @@
   </div>
 
 
-    <!--<div class="row">
+    <div class="row">
        <div class="col-xs-12">
          <pre>@{{$data}}</pre>
        </div>
      </div>
-  </div>-->
+  </div>
 @endsection
 
 @section('js')
@@ -194,6 +194,7 @@ function valida(e){
                 articulos:[],
                 totalCargado:[],
                 fecha:'',
+                prueba3:'',
                 searchUsuario:{'username':'','nombre':'','paterno':'','materno':''},
                     },
             methods:{
@@ -208,7 +209,9 @@ function valida(e){
                     var urlStatus = '/mostrararticulos?query=' + this.buscar;
                       axios.get(urlStatus).then(response => {
                       this.articulos = response.data
+                      this.veriificarexistencia();
                     });
+
                   }else{
                     swal('Seleciona Cliente','Seleciona','info');
                   }
@@ -287,6 +290,11 @@ function valida(e){
                 descargar: function() {
                    window.open('crear?cliente='+this.clienteSelecionado);
 
+                },
+                veriificarexistencia: function() {
+                  if(this.articulos.length<1){
+                    swal('NO SE ENCONTRO EL PRODUCTO','VERIFICA EL PRODUCTO','info');
+                  }
                 },
         }});
     </script>

@@ -95,7 +95,13 @@ class EntradaController extends Controller
     ->where('status','=', 'activo')
     ->get();
 
-      
+      $total = count($entradas);
+
+      if ($total>=1) {
+      return $entradas;
+      }else{
+        return $entradas;
+      }
 
     return $entradas;
   }
