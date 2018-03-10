@@ -182,7 +182,6 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
                 ->orderBy('salida.fecha_salida','desc')
                ->paginate(10);
 
-
       return view('servicio.salidashechas',compact("salidas"));
 
     }

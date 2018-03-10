@@ -95,6 +95,8 @@ class EntradaController extends Controller
     ->where('status','=', 'activo')
     ->get();
 
+      
+
     return $entradas;
   }
 

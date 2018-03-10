@@ -74,7 +74,7 @@
                             <td>@{{ art.cantidad }}</td>
                             <td>
                               <div v-if="art.cantidad > 0">
-                                <input type="number" min="1" max="5" value="1" name="cantidad" v-model="cantidad">
+                                <input type="number" min="1" max="5" value="1" name="cantidad" onkeypress="return valida(event)" v-model="cantidad">
                               </div>
                               <div v-else>
                                 0
@@ -156,6 +156,21 @@
 @endsection
 
 @section('js')
+<script>
+function valida(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
   <script type="text/javascript">
     var vm = new Vue({
             //id asignado al div en el que funcionara vue
