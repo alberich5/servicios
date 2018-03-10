@@ -50,7 +50,8 @@ Route::post('guardarBD', 'SalidaController@guardar');
 Route::get('pruebas', 'SalidaController@pruebas');
 Route::get('crear', 'SalidaController@crearWord');
 Route::get('especifico', 'SalidaController@especifico');
-Route::get('historial', 'SalidaController@historial');
+//Route::get('historial', 'SalidaController@historial');
+Route::post('historial', 'SalidaController@historial');
 
 
 //ruta de Excel

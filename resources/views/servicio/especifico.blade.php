@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container" id="historial">
-    <form action="historial" class="form-horizontal" method="get">
+    <form action="historial" class="form-horizontal" method="POST">
     <div class="form-group">
         <div class="col-sm-8">
       <label for="">Selecion cliente:</label>
@@ -26,7 +26,7 @@
     <input type="date" class="form-control" name="fechafinal" value="<?php echo date("Y-m-d");?>" v-model="fecha_final" required>
     </div>
   </div>
-  <input type="submit" class="btn btn-primary" value="Ver" >
+  <input type="submit" class="btn btn-primary" value="Ver">
   </form>
 
   <div class="row">
@@ -59,6 +59,9 @@
               Eliminar:function(id){
                 var msj = id;
                 alert("eliminar"+msj);
+              },
+              modal:function(){
+                $('#bita').modal('show');
               },
               rea:function(art){
                 this.idtemporal=art.id;
