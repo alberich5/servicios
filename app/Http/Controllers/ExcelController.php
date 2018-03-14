@@ -178,6 +178,7 @@ foreach($users as $index => $user) {
       ->leftjoin('unidad as uni','entra.id_unidad','=','uni.id')
       ->leftjoin('log as lo','entra.id','=','lo.id_entrada')
       ->select('entra.fecha_ingreso','entra.descripcion','entra.marca','uni.nombre','entra.precio','entra.precio_iva','lo.cantidad_inicial as existenciaini',DB::raw('(lo.cantidad_inicial - entra.cantidad) as salidas'),'entra.cantidad as existenciafina',DB::raw('(entra.precio*entra.cantidad) as costo_final'))
+      ->where('entra.status','=','activo' )
       ->get();
 
       $data = array();

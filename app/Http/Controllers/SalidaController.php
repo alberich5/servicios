@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use App\Entrada;
 use App\Salida;
@@ -39,7 +40,7 @@ class SalidaController extends Controller
       $salida=new Salida;
       $salida->id_entrada=$request->variable[$i]['id'];
       $salida->id_cliente=$request->variable[$i]['cliente'];
-      $salida->id_usuario=$request->variable[$i]['id_usuario'];
+      $salida->id_usuario=Auth::id();
       $salida->cantidad=$request->variable[$i]['otro'];
       $salida->status='activo';
       $salida->fecha_salida=$fecha;
@@ -64,6 +65,8 @@ class SalidaController extends Controller
   }
 
     public function pruebas(Request $request){
+      $id = Auth::id();
+      dd($id);
 
       $time = time();
       $segundo=date("s");
@@ -179,7 +182,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
               ->leftjoin('entrada', 'salida.id_entrada', '=', 'entrada.id')
               ->select('salida.id_entrada','cliente.nombre','users.name','salida.cantidad','salida.fecha_salida','entrada.descripcion','salida.id')
               ->where('salida.status','=','activo')
-                ->orderBy('salida.fecha_salida','desc')
+                ->orderBy('salida.id','desc')
                ->paginate(10);
 
       return view('servicio.salidashechas',compact("salidas"));

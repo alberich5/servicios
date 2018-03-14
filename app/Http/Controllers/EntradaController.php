@@ -96,7 +96,9 @@ class EntradaController extends Controller
     ->get();
 
       $total = count($entradas);
-
+    for ($i=0; $i <$total ; $i++) {
+        $entradas[$i]->prueba=0;
+    }
       if ($total>=1) {
       return $entradas;
       }else{

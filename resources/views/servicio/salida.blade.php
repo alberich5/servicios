@@ -37,14 +37,10 @@
         </div>
         <br>
 
-
-
-
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-info">
-                    <div class="panel-heading">Articulos Buscados</div>
+                    <div class="panel-heading"><center>Buscar Articulos</center></div>
                     <div class="panel-body">
                       <div class="col-sm-5">
                         <label for="buscar">Buscar:</label>
@@ -74,7 +70,8 @@
                             <td>@{{ art.cantidad }}</td>
                             <td>
                               <div v-if="art.cantidad > 0">
-                                <input type="number" min="1" max="5" value="1" name="cantidad" onkeypress="return valida(event)" v-model="cantidad">
+                                <input type="number" min="1" max="5" value="1" name="cantidad" onkeypress="return valida(event)" v-model="art.prueba">
+
                               </div>
                               <div v-else>
                                 0
@@ -96,7 +93,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -147,7 +143,7 @@
   </div>
 
 
-    <div class="row">
+     <div class="row">
        <div class="col-xs-12">
          <pre>@{{$data}}</pre>
        </div>
@@ -218,8 +214,9 @@ function valida(e){
 
                 },
                 agregar:function(art, index){
+                  this.cantidad=art.prueba;
                   if(this.cantidad > 0){
-                      if(this.cantidad <= art.cantidad){
+                      if(art.prueba <= art.cantidad){
                         this.totalCargado.push({
                           "id": art.id,
                           "id_usuario": art.id_usuario,
@@ -239,8 +236,9 @@ function valida(e){
                         this.cantidad2=this.cantidad;
                         this.cantidad="0";
                         this.articulos=[];
+                        this.Checar();
                       }else{
-                        swal('nNO','Agrega cantidad mayor a 0','error');
+                        swal('NO','Agrega cantidad mayor a 0 verifica q no supere el stock','error');
                       }
 
 
@@ -254,6 +252,11 @@ function valida(e){
                 quitarEl: function(index) {
                   this.totalCargado.splice(index, 1);
                   swal('Removido...','Se quito elemento','error');
+
+                },
+
+                Checar: function() {
+
 
                 },
 
@@ -293,7 +296,7 @@ function valida(e){
                 },
                 veriificarexistencia: function() {
                   if(this.articulos.length<1){
-                    swal('NO SE ENCONTRO EL PRODUCTO','VERIFICA EL PRODUCTO','info');
+                    swal('NO SE ENCONTRO EL PRODUCTO','VERIFICA EL NOMBRE = '+this.buscar,'info');
                   }
                 },
         }});
