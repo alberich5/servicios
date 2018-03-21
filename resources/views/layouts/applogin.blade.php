@@ -64,7 +64,7 @@
                             <!--<li><a href="{{ url('/posts') }}">Atenciones</a></li>-->
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
-                            <li><a href="{{ url('/howto') }}">Como usar ?</a></li>
+                          
                         @else
                           <li><a href="{{ url('/posts') }}">Agregar</a></li>
                             <li><a href="{{ url('/quejas') }}">Servicios</a></li>
@@ -91,7 +91,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('/howto') }}">Como usar ?</a></li>
+
                         @endif
                     </ul>
                 </div>

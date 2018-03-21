@@ -126,7 +126,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('/howto') }}">Como usar ?</a></li>
+                          
                         @endif
                     </ul>
                 </div>

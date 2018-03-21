@@ -13,6 +13,7 @@
               <th>Fecha Ingreso</th>
     					<th>Descripcion</th>
     					<th>Marca</th>
+              <th>Precio</th>
     					<th>Precio con Iva</th>
     					<th>Stock</th>
               <th>Opciones</th>
@@ -30,6 +31,7 @@
                 @endif
               </td>
               <td>{{ $entra->marca}}</td>
+              <td>$ {{ $entra->precio}}</td>
     					<td>$ {{ $entra->precio_iva}}</td>
               <td>
                 @if('0'  == $entra->cantidad)

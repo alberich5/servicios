@@ -24,7 +24,7 @@ class CreateEntradaTable extends Migration
           $table->date('fecha_ingreso')->nullable();
           $table->string('descripcion');
           $table->string('marca');
-          $table->integer('precio');
+          $table->double('precio');
           $table->double('precio_iva');
           $table->integer('cantidad');
           $table->string('cantidadOriginal');
