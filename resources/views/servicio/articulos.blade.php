@@ -43,12 +43,13 @@
               </td>
               <td>
                 @if($entra->cantidadOriginal  == $entra->cantidad)
-
                 <a href="/eliminarArticulo/{{$entra->id}}">
-                        <button class="btn btn-primary">Eliminar</button>
-                    </a>
+                    <button class="btn btn-primary">Eliminar</button>
+                </a>
                 @endif
-
+                <a href="/editarArticulo/{{$entra->id}}">
+                    <button class="btn btn-success">Editar</button>
+                </a>
               </td>
 
     				</tbody>

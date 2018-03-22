@@ -157,6 +157,24 @@ class EntradaController extends Controller
     return redirect('articulos');
   }
 
+
+  public function editar($id)
+  {
+
+
+    $entrada=Entrada::findOrFail($id);
+
+    return view('servicio.editarArticulo',compact("entrada"));
+  }
+
+  public function actualizar(Request $request)
+  {
+
+      dd("entro");
+  }
+
+
+
   public function destroy($id)
   {
 

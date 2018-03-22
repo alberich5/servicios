@@ -90,6 +90,10 @@ Route::group(['middleware'=> 'Role:admin'], function(){
     Route::get('/users/editprofile/{id}', 'UsersController@show');
     Route::get('/eliminarArticulo/{id}', 'EntradaController@eliminar');
 
+    Route::get('/editarArticulo/{id}', 'EntradaController@editar');
+
+    Route::get('/editarArticulo', 'EntradaController@editar');
+
     Route::post('/users/editprofile/{id}', 'UsersController@update');
 
     Route::get('users/delete/{id}', 'UsersController@destroy');
