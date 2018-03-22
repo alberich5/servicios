@@ -53,6 +53,9 @@ Route::get('especifico', 'SalidaController@especifico');
 //Route::get('historial', 'SalidaController@historial');
 Route::post('historial', 'SalidaController@historial');
 
+//Route::get('/editar/articulo/{id}', 'EntradaController@editar')->name('editar/articulo/id');
+Route::post('editar', 'EntradaController@editar');
+Route::post('actualizararticulo', 'EntradaController@actual');
 
 //ruta de Excel
 Route::get('/export-users', 'ExcelController@exportUsers');

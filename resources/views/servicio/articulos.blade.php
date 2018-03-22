@@ -47,6 +47,10 @@
                 <a href="/eliminarArticulo/{{$entra->id}}">
                         <button class="btn btn-primary">Eliminar</button>
                     </a>
+                    <form action="editar" class="form-horizontal" method="post">
+                        <input type="hidden" class="form-control" name="id" value="{{$entra->id}}">
+                      <input type="submit" class="btn btn-success" value="editar" >
+                  </form>
                 @endif
 
               </td>
