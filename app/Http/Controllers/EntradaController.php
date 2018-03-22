@@ -60,9 +60,10 @@ class EntradaController extends Controller
 
   public function mostrar()
   {
-    $entradas = Entrada::orderBy('created_at', 'desc')
-    ->where('status','=', 'activo')
-    ->paginate(10);
+    $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
+  ->where('status','=', 'activo')
+  ->orderBy('entrada.created_at', 'desc')
+  ->paginate(10);
     return view('servicio.articulos',compact("entradas"));
 
   }
@@ -90,9 +91,10 @@ class EntradaController extends Controller
   public function mostrarArticulos(Request $request)
   {
     $consul=strtoupper($request->get('query'));
-    $entradas = Entrada::orderBy('created_at', 'asc')
+    $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
     ->where('descripcion','like', "%".$consul."%")
     ->where('status','=', 'activo')
+    ->orderBy('entrada.created_at', 'asc')
     ->get();
 
       $total = count($entradas);
@@ -187,7 +189,7 @@ class EntradaController extends Controller
     DB::table('log')
             ->where('id_entrada', $request->get('id_entrada'))
             ->update(['cantidad_inicial' => $request->get('cantidad')]);
-            
+
     return redirect('articulos');
   }
 

@@ -55,6 +55,7 @@
                           <th>Fecha Ingreso</th>
                           <th>Descripcion</th>
                           <th>Marca</th>
+                          <th>Medida</th>
                           <th>Precio con Iva</th>
                           <th>Stock</th>
                           <th>Cantidad</th>
@@ -66,6 +67,7 @@
                             <td>@{{ art.fecha_ingreso }}</td>
                             <td>@{{ art.descripcion }}</td>
                             <td>@{{ art.marca }}</td>
+                              <td>@{{ art.nombre }}</td>
                             <td>@{{ art.precio_iva }}</td>
                             <td>@{{ art.cantidad }}</td>
                             <td>
@@ -104,6 +106,7 @@
                           <th>Fecha Ingreso</th>
                           <th>Descripcion</th>
                           <th>Marca</th>
+                          <th>Medida</th>
                           <th>Precio con Iva</th>
                           <th>Cantidad a Salir</th>
                           <th>Opciones</th>
@@ -115,6 +118,7 @@
                             <td name="fecha_ingreso" v-model="fecha_ingreso">@{{ total.fecha_ingreso }}</td>
                             <td name="descripcion" >@{{ total.descripcion }}</td>
                             <td name="marca" >@{{ total.marca }}</td>
+                            <td >@{{ total.medida }}</td>
                             <td name="precio" v-model="precio">@{{ total.precio_iva }}</td>
                             <td>@{{ total.otro }}</td>
                             <td><button type="button" class="btn btn-danger" v-on:click.prevent="quitarEl(index)">Eliminar</button>
@@ -224,6 +228,7 @@ function valida(e){
                           "fecha_ingreso": art.fecha_ingreso,
                           "descripcion": art.descripcion,
                           "marca": art.marca,
+                          "medida": art.nombre,
                           "precio": art.precio,
                           "precio_iva": art.precio_iva,
                           "cantidad": art.cantidad,
