@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('posts', 'PostsController@index');
 
+Route::get('barcode', 'BarcodeController@index');
+
 Route::get('quejas', 'PostsController@queja');
 Route::get('grafica', 'PostsController@grafica');
 Route::get('filtro', 'PostsController@filtro');
