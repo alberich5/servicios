@@ -115,12 +115,12 @@
 
                           <tr v-for="(total, index) in totalCargado">
 
-                            <td name="fecha_ingreso" v-model="fecha_ingreso">@{{ total.fecha_ingreso }}</td>
-                            <td name="descripcion" >@{{ total.descripcion }}</td>
-                            <td name="marca" >@{{ total.marca }}</td>
-                            <td name="medida" >@{{ total.medida }}</td>
-                            <td name="precio" v-model="precio">@{{ total.precio_iva }}</td>
-                            <td>@{{ total.otro }}</td>
+                            <td name="fecha_ingreso" v-text="total.fecha_ingreso"></td>
+                            <td name="descripcion" v-text="total.descripcion"></td>
+                            <td name="marca" v-text="total.marca"></td>
+                            <td name="medida" v-text="total.medida"></td>
+                            <td name="precio" v-text="total.precio_iva"></td>
+                            <td  v-text="total.otro"></td>
                             <td><button type="button" class="btn btn-danger" v-on:click.prevent="quitarEl(index)">Eliminar</button>
 
                             </td>
