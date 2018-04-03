@@ -77,8 +77,8 @@
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                        <li><a href="{{ url('/cliente') }}">Cliente</a></li>
-                                        <li><a href="{{ url('/unidad') }}">Unidad</a></li>
+                                        <li><a href="{{ url('/mosclientes') }}">Cliente</a></li>
+                                        <li><a href="{{ url('/unidad') }}">Unidad de Medida</a></li>
 
 
                                 </ul>
@@ -91,7 +91,7 @@
                                 <ul class="dropdown-menu" role="menu">
 
                                         <li><a href="{{ url('/articulos') }}">Articulos</a></li>
-                                        <li><a href="{{ url('/mosclientes') }}">Clientes</a></li>
+                                        <!--<li><a href="{{ url('/mosclientes') }}">Clientes</a></li>-->
                                         <li><a href="{{ url('/cancelados') }}">Entradas Cancelados</a></li>
                                         <li><a href="{{ url('/mostrarsalidas') }}">Mostrar Salidas</a></li>
                                         <li><a href="{{ url('/especifico') }}">Bitacora</a></li>
