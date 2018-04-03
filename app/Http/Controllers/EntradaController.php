@@ -162,4 +162,34 @@ class EntradaController extends Controller
 
       dd("entro al destruir de los articulos");
   }
+
+  public function editar(Request $request)
+  {
+    $post=Entrada::findOrFail($request->get('id'));
+
+    return view('servicio/editar',compact('post'));
+  }
+
+  public function actual(Request $request)
+  {
+
+
+    $entrada=Entrada::findOrFail($request->get('id_entrada'));
+    $entrada->fecha_ingreso=$request->get('fecha');
+    $entrada->descripcion=$request->get('descripcion');
+    $entrada->marca=$request->get('marca');
+    $entrada->precio=$request->get('precio');
+    $entrada->cantidad=$request->get('cantidad');
+    $entrada->cantidadOriginal=$request->get('cantidad');
+    $entrada->update();
+
+
+    DB::table('log')
+            ->where('id_entrada', $request->get('id_entrada'))
+            ->update(['cantidad_inicial' => $request->get('cantidad')]);
+
+    return redirect('articulos');
+  }
+
+
 }

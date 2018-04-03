@@ -29,7 +29,9 @@
               <th>Cantidad que Salio</th>
               <th>Producto</th>
               <th>Fecha de Salida</th>
+              @if(Auth::user()->rol == 'admin')
               <th>Opciones</th>
+              @endif
     				</thead>
                    @foreach ($salidas as $sali)
     				<tr>

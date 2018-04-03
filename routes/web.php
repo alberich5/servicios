@@ -53,6 +53,10 @@ Route::get('especifico', 'SalidaController@especifico');
 //Route::get('historial', 'SalidaController@historial');
 Route::post('historial', 'SalidaController@historial');
 
+//son las rutas donde se actulizar los productos
+Route::post('editar', 'EntradaController@editar');
+Route::post('actualizararticulo', 'EntradaController@actual');
+
 
 //ruta de Excel
 Route::get('/export-users', 'ExcelController@exportUsers');

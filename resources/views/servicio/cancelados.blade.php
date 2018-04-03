@@ -15,7 +15,9 @@
     					<th>Marca</th>
     					<th>Precio con Iva</th>
     					<th>Status</th>
+               @if (Auth::user()->rol == 'admin')
               <th>Opcion</th>
+              	@endif
     				</thead>
             <tr v-for="art in articulos">
              <td >@{{ art.id }}</td>
