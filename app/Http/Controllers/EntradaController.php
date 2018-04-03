@@ -60,9 +60,10 @@ class EntradaController extends Controller
 
   public function mostrar()
   {
-    $entradas = Entrada::orderBy('created_at', 'desc')
-    ->where('status','=', 'activo')
-    ->paginate(10);
+    $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
+  ->where('status','=', 'activo')
+  ->orderBy('entrada.created_at', 'desc')
+  ->paginate(10);
     return view('servicio.articulos',compact("entradas"));
 
   }
