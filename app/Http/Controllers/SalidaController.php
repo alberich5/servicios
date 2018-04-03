@@ -10,6 +10,7 @@ use App\Salida;
 use App\Cliente;
 use App\Unidad;
 use App\User;
+use App\Folio;
 use DB;
 
 class SalidaController extends Controller
@@ -66,7 +67,19 @@ class SalidaController extends Controller
 
     public function pruebas(Request $request){
       $id = Auth::id();
-      dd($id);
+
+      $folio = Folio::orderBy('id', 'desc')
+      ->take(1)
+      ->get();
+      $fol="";
+      foreach ($folio as $fo) {
+          $fol = $fo->id;
+      }
+      $fol=$fol+1;
+      $folio=new Folio;
+      $folio->nombre="new";
+      $folio->save();
+      dd($fol);
 
       $time = time();
       $segundo=date("s");
@@ -100,6 +113,18 @@ $tama=count($salidas);
 
 
     public function crearWord(Request $request){
+
+      $folio = Folio::orderBy('id', 'desc')
+      ->take(1)
+      ->get();
+      $fol="";
+      foreach ($folio as $fo) {
+          $fol = $fo->id;
+      }
+      $fol=$fol+1;
+      $folio=new Folio;
+      $folio->nombre="new";
+      $folio->save();
 
       $time = time();
       $segundo=date("s");
@@ -143,6 +168,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
     $templateWord->setValue('mes',$mes);
     $templateWord->setValue('ano',$ano);
     $templateWord->setValue('area',$var);
+      $templateWord->setValue('folio',$fol);
      $templateWord->cloneRow('articulo0',count($salidas));
 
      for ($i=0; $i <count($salidas) ; $i++) {
