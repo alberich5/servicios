@@ -60,7 +60,7 @@
         <div class="form-group">
             <div class="col-sm-10">
               <label for="precio">Precio Unitario:</label>
-                <input type="text" class="form-control" name="precio" placeholder="Precio del producto..." value="{{old('domicilio')}}"  required>
+                <input type="text" class="form-control" name="precio" placeholder="Precio del producto..." onkeypress="return valida2(event)" value="{{old('domicilio')}}"  required>
             </div>
         </div>
 
@@ -96,6 +96,21 @@ function valida(e){
 
     // Patron de entrada, en este caso solo acepta numeros
     patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
+<script>
+function valida2(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9,.]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }

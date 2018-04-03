@@ -147,11 +147,11 @@
   </div>
 
 
-     <!--<div class="row">
+     <div class="row">
        <div class="col-xs-12">
          <pre>@{{$data}}</pre>
        </div>
-     </div>-->
+     </div>
   </div>
 @endsection
 
@@ -241,6 +241,7 @@ function valida(e){
                         this.cantidad2=this.cantidad;
                         this.cantidad="0";
                         this.articulos=[];
+
                         this.Checar();
                       }else{
                         swal('NO','Agrega cantidad mayor a 0 verifica q no supere el stock','error');
@@ -289,6 +290,7 @@ function valida(e){
                          swal("Se Agregaron "+this.respuesta+" Productos", "Muy Bien", "success");
                          this.totalCargado=[];
                          this.respuesta="";
+                         this.clienteSelecionado="";
                     });
                     }
 
