@@ -91,10 +91,13 @@ class EntradaController extends Controller
   public function mostrarArticulos(Request $request)
   {
     $consul=strtoupper($request->get('query'));
-    $entradas = Entrada::orderBy('created_at', 'asc')
-    ->where('descripcion','like', "%".$consul."%")
-    ->where('status','=', 'activo')
+    $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
+    ->select('entrada.id','entrada.id_usuario','entrada.id_unidad','entrada.fecha_ingreso','entrada.descripcion','entrada.marca','entrada.precio','entrada.precio_iva','entrada.cantidad','entrada.cantidadOriginal','entrada.status','entrada.motivo','unidad.nombre')
+    ->where('entrada.descripcion','like', "%".$consul."%")
+    ->where('entrada.status','=', 'activo')
+    ->orderBy('entrada.created_at', 'asc')
     ->get();
+    //dd($entradas);
 
       $total = count($entradas);
     for ($i=0; $i <$total ; $i++) {
