@@ -63,13 +63,13 @@
                         </thead>
                         <tbody>
                           <tr v-for="(art, index) in articulos">
-                            <td>@{{ art.id }}</td>
-                            <td>@{{ art.fecha_ingreso }}</td>
-                            <td>@{{ art.descripcion }}</td>
-                            <td>@{{ art.marca }}</td>
-                            <td>@{{ art.nombre }}</td>
-                            <td>@{{ art.precio_iva }}</td>
-                            <td>@{{ art.cantidad }}</td>
+                            <td v-text="art.id"></td>
+                            <td v-text="art.fecha_ingreso"></td>
+                            <td v-text="art.descripcion"></td>
+                            <td v-text="art.marca"></td>
+                            <td v-text="art.nombre"></td>
+                            <td v-text="art.precio_iva"></td>
+                            <td v-text="art.cantidad"></td>
                             <td>
                               <div v-if="art.cantidad > 0">
                                 <input type="number" min="1" max="5" value="1" name="cantidad" onkeypress="return valida(event)" v-model="art.prueba">
