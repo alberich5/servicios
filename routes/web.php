@@ -17,60 +17,60 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'servicio\HomeController@index');
 
-Route::get('posts', 'PostsController@index');
+Route::get('posts', 'servicio\PostsController@index');
 
-Route::get('quejas', 'PostsController@queja');
-Route::get('grafica', 'PostsController@grafica');
-Route::get('filtro', 'PostsController@filtro');
-Route::get('status', 'PostsController@status');
+Route::get('quejas', 'servicio\PostsController@queja');
+Route::get('grafica', 'servicio\PostsController@grafica');
+Route::get('filtro', 'servicio\PostsController@filtro');
+Route::get('status', 'servicio\PostsController@status');
 
 //servicios gernerales
-Route::get('salida', 'PostsController@salida');
-Route::get('entrada', 'PostsController@entrada');
-Route::get('unidad', 'UnidadController@index');
-Route::get('articulos', 'EntradaController@mostrar');
-Route::get('cancelados', 'EntradaController@cancelados');
-Route::get('canceladosvue', 'EntradaController@canceladosvue');
-Route::get('verificarproducto', 'EntradaController@verificarproducto');
-Route::get('reactivar', 'EntradaController@reactivar');
-Route::get('mostrarsalidas', 'SalidaController@mostrarsalidas');
-Route::get('graficavue', 'GraficaController@index');
-Route::get('cargarcancelados', 'GraficaController@cargararticulosCancelados');
-Route::get('cargarclientes', 'ClienteController@cargar');
-Route::get('cancelarsalida/{id}', 'SalidaController@cancelarsalida');
+Route::get('salida', 'servicio\PostsController@salida');
+Route::get('entrada', 'servicio\PostsController@entrada');
+Route::get('unidad', 'servicio\UnidadController@index');
+Route::get('articulos', 'servicio\EntradaController@mostrar');
+Route::get('cancelados', 'servicio\EntradaController@cancelados');
+Route::get('canceladosvue', 'servicio\EntradaController@canceladosvue');
+Route::get('verificarproducto', 'servicio\EntradaController@verificarproducto');
+Route::get('reactivar', 'servicio\EntradaController@reactivar');
+Route::get('mostrarsalidas', 'servicio\SalidaController@mostrarsalidas');
+Route::get('graficavue', 'servicio\GraficaController@index');
+Route::get('cargarcancelados', 'servicio\GraficaController@cargararticulosCancelados');
+Route::get('cargarclientes', 'servicio\ClienteController@cargar');
+Route::get('cancelarsalida/{id}', 'servicio\SalidaController@cancelarsalida');
 
-Route::get('mosclientes', 'ClienteController@mostrar');
-Route::get('mostraruser', 'UsersController@mostrar');
-Route::get('mosalidas', 'SalidaController@mostrar');
-Route::get('mostrararticulos', 'EntradaController@mostrarArticulos');
-Route::get('guardarSalida', 'SalidaController@guadar');
-Route::post('guardarBD', 'SalidaController@guardar');
-Route::get('pruebas', 'SalidaController@pruebas');
-Route::get('crear', 'SalidaController@crearWord');
-Route::get('especifico', 'SalidaController@especifico');
+Route::get('mosclientes', 'servicio\ClienteController@mostrar');
+Route::get('mostraruser', 'servicio\UsersController@mostrar');
+Route::get('mosalidas', 'servicio\SalidaController@mostrar');
+Route::get('mostrararticulos', 'servicio\EntradaController@mostrarArticulos');
+Route::get('guardarSalida', 'servicio\SalidaController@guadar');
+Route::post('guardarBD', 'servicio\SalidaController@guardar');
+Route::get('pruebas', 'servicio\SalidaController@pruebas');
+Route::get('crear', 'servicio\SalidaController@crearWord');
+Route::get('especifico', 'servicio\SalidaController@especifico');
 //Route::get('historial', 'SalidaController@historial');
-Route::post('historial', 'SalidaController@historial');
+Route::post('historial', 'servicio\SalidaController@historial');
 
 //son las rutas donde se actulizar los productos
-Route::post('editar', 'EntradaController@editar');
-Route::post('actualizararticulo', 'EntradaController@actual');
+Route::post('editar', 'servicio\EntradaController@editar');
+Route::post('actualizararticulo', 'servicio\EntradaController@actual');
 
 
 //ruta de Excel
-Route::get('/export-users', 'ExcelController@exportUsers');
-Route::get('/export-entradas', 'ExcelController@exportEntradas');
-Route::get('/export-salidas', 'ExcelController@exportSalidas');
-Route::get('/export-productos', 'ExcelController@exportProducto');
-Route::get('/export-mensual', 'ExcelController@exportMensual');
-Route::get('/export-cancelado', 'ExcelController@exportCancelados');
-Route::get('/export-prueba', 'ExcelController@pruebaexcel');
+Route::get('/export-users', 'servicio\ExcelController@exportUsers');
+Route::get('/export-entradas', 'servicio\ExcelController@exportEntradas');
+Route::get('/export-salidas', 'servicio\ExcelController@exportSalidas');
+Route::get('/export-productos', 'servicio\ExcelController@exportProducto');
+Route::get('/export-mensual', 'servicio\ExcelController@exportMensual');
+Route::get('/export-cancelado', 'servicio\ExcelController@exportCancelados');
+Route::get('/export-prueba', 'servicio\ExcelController@pruebaexcel');
 //consumir
-Route::get('traerUnidad', 'UnidadController@traerUnidad');
-Route::get('traerCliente', 'ClienteController@traerCliente');
-Route::get('pendientes', 'PostsController@pendiente');
-Route::get('cliente', 'PostsController@cliente');
+Route::get('traerUnidad', 'servicio\UnidadController@traerUnidad');
+Route::get('traerCliente', 'servicio\ClienteController@traerCliente');
+Route::get('pendientes', 'servicio\PostsController@pendiente');
+Route::get('cliente', 'servicio\PostsController@cliente');
 
 Route::get('howto', function (){
 
@@ -80,31 +80,31 @@ Route::get('howto', function (){
 
 Route::group(['middleware'=> 'Role:admin'], function(){
 
-    Route::get('posts/delete/{id}', 'PostsController@destroy');
+    Route::get('posts/delete/{id}', 'servicio\PostsController@destroy');
 
-    Route::post('posts', 'PostsController@store');
-    Route::get('/clientes', 'ClienteController@guardar');
-    Route::get('/unidades', 'UnidadController@guardar');
-    Route::get('/entradas', 'EntradaController@guardar');
+    Route::post('posts', 'servicio\PostsController@store');
+    Route::get('/clientes', 'servicio\ClienteController@guardar');
+    Route::get('/unidades', 'servicio\UnidadController@guardar');
+    Route::get('/entradas', 'servicio\EntradaController@guardar');
 
-    Route::get('/posts/editposts/{id}', 'PostsController@show');
+    Route::get('/posts/editposts/{id}', 'servicio\PostsController@show');
 
-    Route::post('/posts/editposts/{id}', 'PostsController@update');
+    Route::post('/posts/editposts/{id}', 'servicio\PostsController@update');
 
-    Route::get('/users/editprofile/{id}', 'UsersController@show');
-    Route::get('/eliminarArticulo/{id}', 'EntradaController@eliminar');
+    Route::get('/users/editprofile/{id}', 'servicio\UsersController@show');
+    Route::get('/eliminarArticulo/{id}', 'servicio\EntradaController@eliminar');
 
-    Route::post('/users/editprofile/{id}', 'UsersController@update');
+    Route::post('/users/editprofile/{id}', 'servicio\UsersController@update');
 
-    Route::get('users/delete/{id}', 'UsersController@destroy');
+    Route::get('users/delete/{id}', 'servicio\UsersController@destroy');
 
-    Route::get('users/deleteaccount/{id}', 'UsersController@accountDown');
+    Route::get('users/deleteaccount/{id}', 'servicio\UsersController@accountDown');
 
 });
 
 Route::group(['middleware'=> 'Role:admin'], function(){
 
-    Route::get('users/manageprofiles', 'UsersController@index');
-    Route::get('users/guardaruser', 'UsersController@guardaruser');
+    Route::get('users/manageprofiles', 'servicio\UsersController@index');
+    Route::get('users/guardaruser', 'servicio\UsersController@guardaruser');
 
 });

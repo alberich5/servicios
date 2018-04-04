@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\servicio;
 
 use Illuminate\Http\Request;
 use App\Entrada;
@@ -11,7 +11,7 @@ class GraficaController extends Controller
   //funcion para mostrar el index
   public function index()
   {
-    
+
         return view('servicio.graficas');
   }
 

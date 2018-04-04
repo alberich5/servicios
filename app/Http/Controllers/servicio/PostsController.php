@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\servicio;
+use App\Http\Controllers\Controller;
 
 use App\Post;
 use App\Status;
