@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 
 @section('content')
   <h1>aqui todo lo relacionado con lo de servicios generales</h1>

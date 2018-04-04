@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 @section('css')
   <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
 @endsection

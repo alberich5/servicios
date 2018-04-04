@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 
 @section('content')
   <div class="container" id="app">
@@ -44,7 +44,7 @@
               <td>{{ $sali->fecha_salida}}</td>
               <td>
                   @if(Auth::user()->rol == 'admin')
-                <a href="{{URL::action('SalidaController@cancelarsalida',$sali->id)}}"><button class="btn btn-danger">cancelar</button>
+                <a href="{{URL::action('servicio\SalidaController@cancelarsalida',$sali->id)}}"><button class="btn btn-danger">cancelar</button>
                   @endif
               </td>
 

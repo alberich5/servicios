@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 
 @section('content')
 <div class="container" id="historial">

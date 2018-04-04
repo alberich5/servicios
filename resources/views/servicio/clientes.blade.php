@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 
 @section('content')
   <div class="container" id="app">
@@ -54,7 +54,7 @@
     </div>
 
     </div>
-  </div> 
+  </div>
 
 
 @endsection

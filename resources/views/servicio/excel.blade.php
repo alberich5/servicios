@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('servicio.layouts.app')
 
 @section('content')
   <h1>Listado de articulos</h1>
