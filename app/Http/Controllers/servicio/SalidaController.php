@@ -211,7 +211,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
                 ->orderBy('salida.id','desc')
                ->paginate(10);
 
-      return view('servicio.salidashechas',compact("salidas"));
+      return view('servicio.funciones.salidashechas',compact("salidas"));
 
     }
 
@@ -219,7 +219,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
       $cliente = Cliente::orderBy('created_at', 'fecha_salida')
       ->get();
 
-      return view('servicio.especifico',compact("cliente"));
+      return view('servicio.funciones.especifico',compact("cliente"));
 
     }
 
@@ -258,7 +258,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
 
 
 
-      return view('servicio.especificomostrar',["salidas"=>$salidas,"cliente"=>$clientes,"precio"=>$totalprecio,"iva"=>$totaliva,"final"=>$request->get('fechafinal'),"inicial"=>$request->get('fechaini')]);
+      return view('servicio.funciones.especificomostrar',["salidas"=>$salidas,"cliente"=>$clientes,"precio"=>$totalprecio,"iva"=>$totaliva,"final"=>$request->get('fechafinal'),"inicial"=>$request->get('fechaini')]);
     //  return view('servicio.especificomostrar',compact("salidas"));
     }
 

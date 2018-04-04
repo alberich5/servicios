@@ -10,7 +10,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::orderBy('created_at', 'desc')->paginate(10);
-        return view('users/manageprofiles',compact("users"));
+        return view('servicio/usuarios/manageprofiles',compact("users"));
     }
 
     public function mostrar()
@@ -23,14 +23,14 @@ class UsersController extends Controller
     {
         User::destroy($id);
 
-        return redirect('users/manageprofiles');
+        return redirect('servicio/usuarios/manageprofiles');
     }
 
     public function show($id)
     {
         $user=User::findOrFail($id);
 
-        return view('users/editprofile',compact('user'));
+        return view('servicio/usuarios/editprofile',compact('user'));
     }
 
     public function update($id, Request $request)
@@ -63,6 +63,6 @@ class UsersController extends Controller
       $user->email=$email;
       $user->password=bcrypt($request->get('password'));
       $user->save();
-      return redirect("/users/manageprofiles");
+      return redirect("servicio/usuarios/manageprofiles");
     }
 }

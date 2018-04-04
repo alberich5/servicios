@@ -18,7 +18,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);
-        return view('servicio.posts',compact("posts"));
+        return view('servicio.funciones.posts',compact("posts"));
     }
     //funcion para mostrar las quejas
     public function queja()
@@ -30,24 +30,24 @@ class PostsController extends Controller
     //funcion para salidas
     public function salida()
     {
-        return view('servicio.salida');
+        return view('servicio.funciones.salida');
     }
     //funcion para entradas
     public function entrada()
     {
-        return view('servicio.entrada');
+        return view('servicio.funciones.entrada');
     }
     //funcion para entradas
     public function cliente()
     {
-        return view('servicio.cliente');
+        return view('servicio.funciones.cliente');
     }
 
     //funcion para mostrar las graficas
     public function grafica()
     {
 
-        return view('grafica');
+        return view('servicio.excel.grafica');
     }
 
     //funcion para mostrar filtro

@@ -16,7 +16,7 @@ class UnidadController extends Controller
   public function index()
   {
       $unidad = Unidad::select('id','nombre')->get();
-      return view('servicio.unidad',compact("unidad"));
+      return view('servicio.funciones.unidad',compact("unidad"));
   }
 
   public function traerUnidad()

@@ -64,7 +64,7 @@ class EntradaController extends Controller
   ->where('status','=', 'activo')
   ->orderBy('entrada.created_at', 'desc')
   ->paginate(10);
-    return view('servicio.articulos',compact("entradas"));
+    return view('servicio.funciones.articulos',compact("entradas"));
 
   }
   public function cancelados()
@@ -72,7 +72,7 @@ class EntradaController extends Controller
     $entradas = Entrada::orderBy('created_at', 'desc')
     ->where('status','=', 'cancelado')
     ->paginate(10);
-    return view('servicio.cancelados',compact("entradas"));
+    return view('servicio.funciones.cancelados',compact("entradas"));
 
   }
 
@@ -171,7 +171,7 @@ class EntradaController extends Controller
   {
     $post=Entrada::findOrFail($request->get('id'));
 
-    return view('servicio/editar',compact('post'));
+    return view('servicio/funciones/editar',compact('post'));
   }
 
   public function actual(Request $request)

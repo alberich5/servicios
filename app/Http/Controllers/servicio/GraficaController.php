@@ -12,7 +12,7 @@ class GraficaController extends Controller
   public function index()
   {
 
-        return view('servicio.graficas');
+        return view('servicio.funciones.graficas');
   }
 
 

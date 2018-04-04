@@ -30,7 +30,7 @@ class ClienteController extends Controller
   {
     $clientes = Cliente::orderBy('created_at', 'desc')->paginate(10);
 
-    return view('servicio.clientes',compact("clientes"));
+    return view('servicio.funciones.clientes',compact("clientes"));
 
   }
   public function cargar()
