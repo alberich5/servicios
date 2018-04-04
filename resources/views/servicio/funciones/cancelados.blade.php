@@ -42,7 +42,7 @@
     	</div>
     </div>
 
-    @include('servicio.revalidacion')
+    @include('servicio.funciones.revalidacion')
     <!--<div class="row">
        <div class="col-xs-12">
          <pre>@{{$data}}</pre>
