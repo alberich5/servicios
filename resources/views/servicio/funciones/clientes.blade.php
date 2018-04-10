@@ -3,7 +3,7 @@
 @section('content')
   <div class="container" id="app">
     <center><h1>Listado de Clientes</h1></center>
-    <div id="articulo">
+    <div >
       <form action="clientes" class="form-horizontal" method="get">
         @if(count($errors) > 0)
             <div class="errors">
