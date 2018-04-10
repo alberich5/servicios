@@ -206,7 +206,7 @@ $templateWord = new \PhpOffice\PhpWord\TemplateProcessor('plantillasDoc/formato1
       $salidas = Salida::leftjoin('cliente', 'salida.id_cliente', '=', 'cliente.id')
               ->leftjoin('users', 'salida.id_usuario', '=', 'users.id')
               ->leftjoin('entrada', 'salida.id_entrada', '=', 'entrada.id')
-              ->select('salida.id_entrada','cliente.nombre','users.name','salida.cantidad','salida.fecha_salida','entrada.descripcion','salida.id')
+              ->select('salida.id_entrada','cliente.nombre','users.name','salida.cantidad','salida.fecha_salida','entrada.descripcion','salida.id','salida.created_at')
               ->where('salida.status','=','activo')
                 ->orderBy('salida.id','desc')
                ->paginate(10);

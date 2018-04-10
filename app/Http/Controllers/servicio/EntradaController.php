@@ -95,7 +95,7 @@ class EntradaController extends Controller
   {
     $consul=strtoupper($request->get('query'));
     $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
-    ->select('entrada.id','entrada.id_usuario','entrada.id_unidad','entrada.fecha_ingreso','entrada.descripcion','entrada.marca','entrada.precio','entrada.precio_iva','entrada.cantidad','entrada.cantidadOriginal','entrada.status','entrada.motivo','unidad.nombre')
+    ->select('entrada.id','entrada.id_usuario','entrada.id_unidad','entrada.fecha_ingreso','entrada.descripcion','entrada.marca','entrada.precio','entrada.ubicacion','entrada.precio_iva','entrada.cantidad','entrada.cantidadOriginal','entrada.status','entrada.motivo','unidad.nombre')
     ->where('entrada.descripcion','like', "%".$consul."%")
     ->where('entrada.status','=', 'activo')
     ->orderBy('entrada.created_at', 'asc')
@@ -202,7 +202,7 @@ class EntradaController extends Controller
 
   public function ubicacion(Request $request)
   {
-    
+
     return view('servicio/funciones/ubicacion');
   }
 

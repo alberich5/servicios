@@ -45,7 +45,7 @@
                       <td v-text="art.descripcion"></td>
                       <td v-text="art.marca"></td>
                       <td v-text="art.nombre"></td>
-                      <td v-text="art.precio_iva"></td>
+                      <td v-text="art.ubicacion"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -54,11 +54,11 @@
       </div>
   </div>
 
-  <div class="row">
+  <!--<div class="row">
     <div class="col-xs-12">
       <pre>@{{$data}}</pre>
     </div>
-  </div>
+  </div>-->
 
 </div>
 

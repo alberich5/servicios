@@ -41,7 +41,7 @@
               <td>{{ $sali->name}}</td>
               <td>{{ $sali->cantidad}}</td>
               <td>{{ $sali->descripcion}}</td>
-              <td>{{ $sali->fecha_salida}}</td>
+              <td WIDTH="180">{{ $sali->created_at}}</td>
               <td>
                   @if(Auth::user()->rol == 'admin')
                 <a href="{{URL::action('servicio\SalidaController@cancelarsalida',$sali->id)}}"><button class="btn btn-danger">cancelar</button>
