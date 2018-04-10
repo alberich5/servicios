@@ -17,6 +17,7 @@
               <th>Precio sin Iva</th>
     					<th>Precio con Iva</th>
     					<th>Stock</th>
+              <th style="background-color: #F7F5EF;">Ubicacion</th>
               <th>Opciones</th>
     				</thead>
                    @foreach ($entradas as $entra)
@@ -43,6 +44,7 @@
                   {{ $entra->cantidad}}
                 @endif
               </td>
+              <td style="background-color: #F7F5EF;"><strong>{{ $entra->ubicacion}}</strong></td>
               <td>
                 @if($entra->cantidadOriginal  == $entra->cantidad)
 

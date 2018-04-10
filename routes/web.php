@@ -26,6 +26,8 @@ Route::get('grafica', 'servicio\PostsController@grafica');
 Route::get('filtro', 'servicio\PostsController@filtro');
 Route::get('status', 'servicio\PostsController@status');
 
+Route::get('ubicacion', 'servicio\EntradaController@ubicacion');
+
 //servicios gernerales
 Route::get('salida', 'servicio\PostsController@salida');
 Route::get('entrada', 'servicio\PostsController@entrada');

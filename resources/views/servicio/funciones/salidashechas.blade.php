@@ -47,7 +47,6 @@
                 <a href="{{URL::action('servicio\SalidaController@cancelarsalida',$sali->id)}}"><button class="btn btn-danger">cancelar</button>
                   @endif
               </td>
-
     				</tr>
 
     				@endforeach
@@ -59,10 +58,6 @@
 
   </div>
   </div>
-
-
-
-
 
 
 

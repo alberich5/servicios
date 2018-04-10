@@ -33,7 +33,7 @@ class EntradaController extends Controller
       $entrada->cantidad=$request->get('cantidad');
       $entrada->cantidadOriginal=$request->get('cantidad');
       $entrada->status='activo';
-      $entrada->ubicacion='';
+      $entrada->ubicacion=$request->get('ubicacion');
       $entrada->motivo='';
       $entrada->save();
 
@@ -198,6 +198,14 @@ class EntradaController extends Controller
 
     return redirect('articulos');
   }
+
+
+  public function ubicacion(Request $request)
+  {
+    
+    return view('servicio/funciones/ubicacion');
+  }
+
 
 
 }

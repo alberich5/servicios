@@ -95,6 +95,7 @@
                                         <li><a href="{{ url('/cancelados') }}">Entradas Cancelados</a></li>
                                         <li><a href="{{ url('/mostrarsalidas') }}">Mostrar Salidas</a></li>
                                         <li><a href="{{ url('/especifico') }}">Bitacora</a></li>
+                                        <li><a href="{{ url('/ubicacion') }}">Ubicacion</a></li>
 
 
 
@@ -126,7 +127,7 @@
                                     </li>
                                 </ul>
                             </li>
-                          
+
                         @endif
                     </ul>
                 </div>
