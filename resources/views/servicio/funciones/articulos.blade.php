@@ -14,7 +14,7 @@
     					<th>Descripcion</th>
     					<th>Marca</th>
               <th>Medida</th>
-              <th>Precio</th>
+              <th>Precio sin Iva</th>
     					<th>Precio con Iva</th>
     					<th>Stock</th>
               <th>Opciones</th>

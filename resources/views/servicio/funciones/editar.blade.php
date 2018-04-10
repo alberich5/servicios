@@ -63,6 +63,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-sm-10">
+              <label for="cantidad">Ubicacion Producto en el Anaquel:</label>
+                <input type="text" class="form-control" name="ubicacion" value="{{ $post->ubicacion }}" onkeypress="return valida(event)" required>
+            </div>
+        </div>
+
 
         <input type="submit" class="btn btn-primary" value="Actualizar" >
     </form>

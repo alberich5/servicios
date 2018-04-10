@@ -62,9 +62,11 @@ class EntradaController extends Controller
   public function mostrar()
   {
     $entradas = Entrada::leftjoin('unidad', 'entrada.id_unidad', '=', 'unidad.id')
+  ->select('entrada.id','entrada.id_usuario','entrada.id_unidad','entrada.fecha_ingreso','entrada.descripcion','entrada.marca','entrada.precio','entrada.precio_iva','entrada.cantidad','entrada.ubicacion','entrada.cantidadOriginal','entrada.status','entrada.motivo','unidad.nombre')
   ->where('status','=', 'activo')
   ->orderBy('entrada.created_at', 'desc')
   ->paginate(10);
+
     return view('servicio.funciones.articulos',compact("entradas"));
 
   }
@@ -186,6 +188,7 @@ class EntradaController extends Controller
     $entrada->precio=$request->get('precio');
     $entrada->cantidad=$request->get('cantidad');
     $entrada->cantidadOriginal=$request->get('cantidad');
+    $entrada->ubicacion=$request->get('ubicacion');
     $entrada->update();
 
 
