@@ -33,6 +33,7 @@ class EntradaController extends Controller
       $entrada->cantidad=$request->get('cantidad');
       $entrada->cantidadOriginal=$request->get('cantidad');
       $entrada->status='activo';
+      $entrada->ubicacion='';
       $entrada->motivo='';
       $entrada->save();
 

@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'servicio\HomeController@index');
 
-Route::get('posts', 'servicio\PostsController@index');
+Route::get('index', 'servicio\PostsController@index');
 
 Route::get('quejas', 'servicio\PostsController@queja');
 Route::get('grafica', 'servicio\PostsController@grafica');

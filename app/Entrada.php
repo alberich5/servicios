@@ -20,6 +20,7 @@ class Entrada extends Model
       'cantidad',
       'cantidadOriginal',
       'status',
+      'ubicacion',
       'motivo'
    ];
 }
