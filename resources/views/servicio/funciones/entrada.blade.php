@@ -71,6 +71,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-sm-10">
+              <label for="cantidad">Ubicacion del Producto:</label>
+                <input type="text" class="form-control" name="ubicacion" placeholder="Ubicacion del producto en el Anaquel" value="{{old('domicilio')}}" onkeypress="return valida(event)" required>
+            </div>
+        </div>
+
 
         <input type="submit" class="btn btn-primary" value="Guardar" >
     </form>
