@@ -4,6 +4,17 @@
   <div class="container" id="articulos">
     <center><h1></h1></center>
 <div id="articulo">
+    <form action="buscarexcel" class="form-horizontal" method="get">
+
+
+  <div class="col-sm-5">
+    <label for="buscar">Buscar:</label>
+      <input type="search" class="form-control" name="buscar"  style="text-transform: uppercase;">
+  </div>
+  <div class="col-sm-3">
+      <input type="submit" class="btn btn-primary" value="Buscar">
+  </div>
+  </form>
     <div class="row">
     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     		<div class="table-responsive">
@@ -23,12 +34,9 @@
                    @foreach ($root as $ro)
             <tbody>
               	<td>
-                  @if('0'  == $ro->existenciafina)
-                    <span class="label label-info">{{ $ro->fecha_ingreso}}</span>
-                  @endif
-                  @if('0'  < $ro->existenciafina)
+                
                     {{ $ro->fecha_ingreso}}
-                  @endif
+
                   </td>
                 <td>{{ $ro->descripcion}}</td>
                 <td>{{ $ro->marca}}</td>

@@ -62,6 +62,7 @@ Route::post('actualizararticulo', 'servicio\EntradaController@actual');
 //Serivicios fromArray
 Route::get('tab', 'servicio\ExcelController@tabla');
 Route::get('tab2', 'servicio\ExcelController@tabla2');
+Route::get('buscarexcel', 'servicio\ExcelController@buscar');
 
 //ruta de Excel
 Route::get('/export-users', 'servicio\ExcelController@exportUsers');
