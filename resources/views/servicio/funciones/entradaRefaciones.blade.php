@@ -2,8 +2,8 @@
 
 @section('content')
   <div class="container" id="app">
-    <center><h2>Nueva Entrada de Papeleria</h2></center>
-    <form action="entradas" class="form-horizontal" method="get">
+    <center><h2>Nueva Entrada de Refacciones</h2></center>
+    <form action="entradasRefa" class="form-horizontal" method="get">
         @if(count($errors) > 0)
             <div class="errors">
                 <ul class="alert-danger">
@@ -46,13 +46,13 @@
                 <input type="text" class="form-control" name="marca" placeholder="Marca del producto..." value="{{old('domicilio')}}" style="text-transform: uppercase;" required>
             </div>
         </div>
-        <!---
+
         <div class="form-group">
             <div class="col-sm-10">
               <label for="destinado">Destinado:</label>
                 <input type="text" class="form-control" name="destinado" placeholder="destinado" value="{{old('destinado')}}" style="text-transform: uppercase;" required>
             </div>
-        </div>-->
+        </div>
 
         <div class="form-group">
             <div class="col-sm-10">

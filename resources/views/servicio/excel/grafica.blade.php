@@ -57,26 +57,20 @@
     <form action="export-mensual" class="form-horizontal" method="get">
     <div class="form-group">
         <div class="col-sm-6">
-          <label for="fecha">Reporte Mensual:</label>
-            <select class="form-control" name="mes">
-              <option value="1">Enero</option>
-              <option value="2">Febrero</option>
-              <option value="3">Marzo</option>
-              <option value="4">Abril</option>
-              <option value="5">Mayo</option>
-              <option value="6">Junio</option>
-              <option value="7">Julio</option>
-              <option value="8">Agosto</option>
-              <option value="9">Septiembre</option>
-              <option value="10">Octubre</option>
-              <option value="11">Noviembre</option>
-              <option value="12">Diciembre</option>
-            </select><br>
-            <input type="submit" class="btn btn-primary" value="Reporte Mensual" >
+          
+            <input type="submit" class="btn btn-primary" value="Descargar Papeleria" >
         </div>
 
     </div>
     </form>
+    <br>
+    <form action="export-refaciones" class="form-horizontal" method="get">
+        <div class="form-group">
+            <div class="col-sm-6">
+                <input type="submit" class="btn btn-primary" value="Descargar Refaciones" >
+            </div>
+        </div>
+        </form>
 </div>
     </div>
 @endsection

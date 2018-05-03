@@ -31,6 +31,8 @@ Route::get('ubicacion', 'servicio\EntradaController@ubicacion');
 //servicios gernerales
 Route::get('salida', 'servicio\PostsController@salida');
 Route::get('entrada', 'servicio\PostsController@entrada');
+Route::get('refaciones', 'servicio\PostsController@refaciones');
+
 Route::get('unidad', 'servicio\UnidadController@index');
 Route::get('articulos', 'servicio\EntradaController@mostrar');
 Route::get('cancelados', 'servicio\EntradaController@cancelados');
@@ -72,6 +74,8 @@ Route::get('/export-productos', 'servicio\ExcelController@exportProducto');
 Route::get('/export-mensual', 'servicio\ExcelController@exportMensual');
 Route::get('/export-cancelado', 'servicio\ExcelController@exportCancelados');
 Route::get('/export-prueba', 'servicio\ExcelController@pruebaexcel');
+
+Route::get('/export-refaciones', 'servicio\ExcelController@exportrefaciones');
 //consumir
 Route::get('traerUnidad', 'servicio\UnidadController@traerUnidad');
 Route::get('traerCliente', 'servicio\ClienteController@traerCliente');
@@ -92,6 +96,7 @@ Route::group(['middleware'=> 'Role:admin'], function(){
     Route::get('/clientes', 'servicio\ClienteController@guardar');
     Route::get('/unidades', 'servicio\UnidadController@guardar');
     Route::get('/entradas', 'servicio\EntradaController@guardar');
+    Route::get('/entradasRefa', 'servicio\EntradaController@guardar2');
 
     Route::get('/posts/editposts/{id}', 'servicio\PostsController@show');
 

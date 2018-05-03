@@ -37,6 +37,11 @@ class PostsController extends Controller
     {
         return view('servicio.funciones.entrada');
     }
+
+    public function refaciones()
+    {
+        return view('servicio.funciones.entradaRefaciones');
+    }
     //funcion para entradas
     public function cliente()
     {

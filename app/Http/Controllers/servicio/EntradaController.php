@@ -22,22 +22,21 @@ class EntradaController extends Controller
     $preci= $request->get('precio');
     $iva=($preci*0.16)+$preci;
 
-      $entrada=new Entrada;
-      $entrada->id_usuario=$request->get('id_usuario');
-      $entrada->id_unidad=$request->get('unidad');
-      $entrada->fecha_ingreso=$request->get('fecha');
-      $entrada->descripcion=strtoupper($request->get('descripcion'));
-      $entrada->marca=strtoupper($request->get('marca'));
-      $entrada->precio=$request->get('precio');
-      $entrada->precio_iva=$iva;
-      $entrada->cantidad=$request->get('cantidad');
-      $entrada->cantidadOriginal=$request->get('cantidad');
-      $entrada->status='activo';
-      $entrada->ubicacion=$request->get('ubicacion');
-      $entrada->motivo='';
-      $entrada->save();
-
-
+    $entrada=new Entrada;
+        $entrada->id_usuario=$request->get('id_usuario');
+        $entrada->id_unidad=$request->get('unidad');
+        $entrada->fecha_ingreso=$request->get('fecha');
+        $entrada->descripcion=strtoupper($request->get('descripcion'));
+        $entrada->marca=strtoupper($request->get('marca'));
+        $entrada->precio=$request->get('precio');
+        $entrada->precio_iva=$iva;
+        $entrada->cantidad=$request->get('cantidad');
+        $entrada->cantidadOriginal=$request->get('cantidad');
+        $entrada->status='activo';
+        $entrada->ubicacion=$request->get('ubicacion');
+        $entrada->tipo='p';
+        $entrada->motivo='';
+        $entrada->save();
 
       $entradas = Entrada::orderBy('created_at', 'desc')
       ->limit(1)->get();
@@ -58,6 +57,53 @@ class EntradaController extends Controller
 
       return redirect('articulos');
   }
+
+  public function guardar2(Request $request)
+  {
+    //calcular iva
+    $preci= $request->get('precio');
+    $iva=($preci*0.16)+$preci;
+
+      $entrada=new Entrada;
+      $entrada->id_usuario=$request->get('id_usuario');
+      $entrada->id_unidad=$request->get('unidad');
+      //$entrada->fecha_ingreso=$request->get('fecha');
+      $entrada->fecha_ingreso='2017-12-01';
+      $entrada->descripcion=strtoupper($request->get('descripcion'));
+      $entrada->marca=strtoupper($request->get('marca'));
+      $entrada->precio=$request->get('precio');
+      $entrada->precio_iva=$iva;
+      $entrada->cantidad=$request->get('cantidad');
+      $entrada->cantidadOriginal=$request->get('cantidad');
+      $entrada->status='activo';
+      $entrada->ubicacion=$request->get('ubicacion');
+      $entrada->tipo='rw';
+      //$entrada->ubicacion='pendiente';
+      $entrada->motivo='';
+      $entrada->destinado=strtoupper($request->get('destinado'));
+      $entrada->save();
+
+      $entradas = Entrada::orderBy('created_at', 'desc')
+      ->limit(1)->get();
+      $identrada="";
+      $canti_ini="";
+      foreach ($entradas as $entra) {
+          $identrada = $entra->id;
+          $canti_ini = $entra->cantidad;
+      }
+
+      $log=new Log;
+      $log->id_entrada=$identrada;
+      $log->cantidad_inicial=$canti_ini;
+      $log->tipo='entrada';
+      $log->fecha_log=$request->get('fecha');
+      $log->save();
+
+
+      return redirect('articulos');
+  }
+
+
 
   public function mostrar()
   {

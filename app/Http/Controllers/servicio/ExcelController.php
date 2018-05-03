@@ -139,10 +139,45 @@ foreach($users as $index => $user) {
 
   }
 
+  //Refaciones
+  public function exportrefaciones(Request $request)
+    {
+      \Excel::create('Refaciones', function($excel) {
+        $mes = request()->get('mes');
+        $inicio='';
+        $fin='';
+
+        $users = DB::table('entrada as entra')
+        ->leftjoin('unidad as uni','entra.id_unidad','=','uni.id')
+        ->leftjoin('log as lo','entra.id','=','lo.id_entrada')
+        ->select('entra.fecha_ingreso','entra.descripcion','entra.marca','entra.destinado','uni.nombre','entra.precio','entra.precio_iva','lo.cantidad_inicial as existenciaini',DB::raw('(lo.cantidad_inicial - entra.cantidad) as salidas'),'entra.cantidad as existenciafina',DB::raw('(entra.precio*entra.cantidad) as costo_final'))
+        ->where('entra.status','=','activo' )
+        ->where('entra.tipo','=','r' )
+        ->get();
+
+        $data = array();
+        foreach ($users as $result) {
+          $data[] = (array)$result;
+        }
+
+        $excel->sheet('Sheetname', function($sheet) use($data) {
+            $sheet->setFontFamily('Calibri');
+            $sheet->setFontSize(13);
+            $sheet->setBorder('A1:J1', 'thin');
+            $sheet->fromArray($data);
+
+        });
+
+
+
+  })->export('xlsx');
+
+    }
+
 
   public function exportMensual(Request $request)
   {
-    \Excel::create('Mensual', function($excel) {
+    \Excel::create('Papeleria', function($excel) {
       $mes = request()->get('mes');
       $inicio='';
       $fin='';
@@ -179,6 +214,7 @@ foreach($users as $index => $user) {
       ->leftjoin('log as lo','entra.id','=','lo.id_entrada')
       ->select('entra.fecha_ingreso','entra.descripcion','entra.marca','uni.nombre','entra.precio','entra.precio_iva','lo.cantidad_inicial as existenciaini',DB::raw('(lo.cantidad_inicial - entra.cantidad) as salidas'),'entra.cantidad as existenciafina',DB::raw('(entra.precio*entra.cantidad) as costo_final'))
       ->where('entra.status','=','activo' )
+        ->where('entra.tipo','=','p' )
       ->get();
 
       $data = array();

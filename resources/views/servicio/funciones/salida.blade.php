@@ -298,7 +298,7 @@ function valida(e){
 
                 },
                 descargar: function() {
-                   window.open('crear?cliente='+this.clienteSelecionado);
+                   window.open('crear?cliente='+this.clienteSelecionado); 
 
                 },
                 veriificarexistencia: function() {

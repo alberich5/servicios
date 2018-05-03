@@ -68,19 +68,24 @@
                            <!-- <li><a href="{{ url('/register') }}">Register</a></li>-->
                             <li><a href="{{ url('/howto') }}">Como usar ?</a></li>
                         @else
-                          <li><a href="{{ url('/entrada') }}">Entrada</a></li>
+                          <!---<li><a href="{{ url('/entrada') }}">Entrada</a></li>-->
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  Entrada <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                      <li><a href="{{ url('/entrada') }}">Entrada Papeleria</a></li>
+                                      <li><a href="{{ url('/refaciones') }}">Entrada Refaciones</a></li>
+                              </ul>
+                          </li>
                             <li><a href="{{ url('/salida') }}">Salida</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Agregar <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
-
                                         <li><a href="{{ url('/mosclientes') }}">Cliente</a></li>
                                         <li><a href="{{ url('/unidad') }}">Unidad de Medida</a></li>
-
-
                                 </ul>
                             </li>
                             <li class="dropdown">
